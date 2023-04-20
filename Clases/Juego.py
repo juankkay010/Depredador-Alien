@@ -41,14 +41,15 @@ class Juego:
     def movimiento_alien(self):
         while True:
             direccion = input("Ingrese la direccion donde quiere mover el alien: ")
+            numero_casillas = int(input("Ingrese el numero de casillas a moverse (1 o 2): "))
             if direccion in ["arriba", "abajo", "izquierda", "derecha"]:
                 fila_anterior, columna_anterior = self.alien.posicion
-                if self.alien.move(direccion, self.tablero):
+                if self.alien.move(direccion, self.tablero, numero_casillas):
                     self.tablero.obtener_celda(fila_anterior, columna_anterior).value = None
                     self.tablero.obtener_celda(self.alien.posicion[0], self.alien.posicion[1]).value = "👽"
                     break
                 else:
-                    print("La celda a la que intenta moverse no está vacía")
+                    print("La celda a la que intenta moverse no existe")
             else:
                 print("Dirección no válida")
 
@@ -95,7 +96,7 @@ class Juego:
                 break
 
 
-game = Juego(3)
+game = Juego(4)
 game.jugar()
 
 

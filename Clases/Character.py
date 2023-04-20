@@ -12,16 +12,16 @@ class Alien(Character):
     def __init__(self):
         super().__init__()
 
-    def move(self, direccion, tablero):
+    def move(self, direccion, tablero, casillas):
         fila, columna = self.posicion
         if direccion == "arriba":
-            fila -= 1
+            fila -= casillas
         elif direccion == "abajo":
-            fila += 1
+            fila += casillas
         elif direccion == "izquierda":
-            columna -= 1
+            columna -= casillas
         elif direccion == "derecha":
-            columna += 1
+            columna += casillas
 
         if not tablero.obtener_celda(fila, columna):
             return False
@@ -50,15 +50,16 @@ class Pedrator(Character):
     def move(self, tablero):
         fila, columna = self.posicion
         direcciones_posibles = ["arriba", "abajo", "izquierda", "derecha"]
+        casillas_a_moverse = [1, 2]
         direccion = random.choice(direcciones_posibles)
         if direccion == "arriba":
-            fila -= 1
+            fila -= random.choice(casillas_a_moverse)
         elif direccion == "abajo":
-            fila += 1
+            fila += random.choice(casillas_a_moverse)
         elif direccion == "izquierda":
-            columna -= 1
+            columna -= random.choice(casillas_a_moverse)
         elif direccion == "derecha":
-            columna += 1
+            columna += random.choice(casillas_a_moverse)
 
         if not tablero.obtener_celda(fila, columna):
             return False

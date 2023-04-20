@@ -12,10 +12,10 @@ class Tablero:
 
     def crear_tablero(self):
         for i in range(self.n):
-            row = LinkedList()
+            fila = LinkedList()
             for j in range(self.n):
-                row.add_at_tail(None)
-            self.tablero.add_at_tail(row)
+                fila.add_at_tail(None)
+            self.tablero.add_at_tail(fila)
 
     def obtener_celda(self, fila, columna):
         if fila >= self.n or columna >= self.n:
