@@ -19,7 +19,7 @@ class Tablero:
 
     def obtener_celda(self, fila, columna):
         if fila >= self.n or columna >= self.n:
-            return None
+            return False
         current_fila = self.tablero.head
         for i in range(fila):
             current_fila = current_fila.next
