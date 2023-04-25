@@ -23,6 +23,9 @@ class Alien(Character):
         elif direccion == "derecha":
             columna += casillas
 
+        if columna < 0:
+            return False
+
         if not tablero.obtener_celda(fila, columna):
             return False
 
@@ -31,6 +34,8 @@ class Alien(Character):
             self.vida += 10
         elif celda == "-":
             self.vida -= 10
+        elif celda == "#":
+            return False
         elif isinstance(celda, Pedrator):
             self.vida -= 25
             # Ambos personajes quedan en la misma celda
@@ -84,6 +89,8 @@ class Pedrator(Character):
             self.vida += 10
         elif celda == "-":
             self.vida -= 10
+        elif celda == "#":
+            return False
 
         if celda is not None:
             self.posicion = (fila, columna)

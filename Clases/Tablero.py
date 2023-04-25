@@ -43,7 +43,7 @@ class Tablero:
             fila_actual = fila_actual.next
 
     def agregar_simbolos(self):
-        simbolos = ["+"] * self.n + ["-"] * self.n
+        simbolos = ["+"] * self.n + ["-"] * self.n + ["#"] * (self.n//2)
         random.shuffle(simbolos)
         nodos = []
         fila_actual = self.tablero.head

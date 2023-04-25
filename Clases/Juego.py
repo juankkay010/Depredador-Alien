@@ -49,7 +49,7 @@ class Juego:
                     self.tablero.obtener_celda(self.alien.posicion[0], self.alien.posicion[1]).value = "👽"
                     break
                 else:
-                    print("La celda a la que intenta moverse no existe")
+                    print("No puede moverse a esta celda")
             else:
                 print("Dirección no válida")
 
