@@ -84,7 +84,16 @@ class Juego:
 
             # Movimiento del Alien
             print("Turno del Alien")
-            self.movimiento_alien()
+            opcion = input("Moverse o atacar: ")
+            if opcion == "moverse":
+                self.movimiento_alien()
+            if opcion == "atacar":
+                if self.alien.attack(self.depredador):
+                    self.depredador.vida -= 10
+                else:
+                    print("No se pudo realizar el ataque")
+            else:
+                print("Seleccione una opción correcta")
 
             # Movimiento del Depredador
             print("Turno del Depredador")

@@ -39,8 +39,23 @@ class Alien(Character):
         self.posicion = (fila, columna)
         return True
 
-    def attack(self):
-        pass
+    def attack(self, predator):
+        posicion_predator = predator.posicion
+        if (self.posicion[0] == posicion_predator[0]) and ((posicion_predator[1] - self.posicion[1]) == 1 or
+                                                           (posicion_predator[1] - self.posicion[1]) == -1):
+            return True
+        elif (self.posicion[1] == posicion_predator[1]) and ((posicion_predator[0] - self.posicion[0]) == 1 or
+                                                             (posicion_predator[0] - self.posicion[0]) == -1):
+            return True
+        elif (self.posicion[0] - posicion_predator[0] == 1 and self.posicion[1] - posicion_predator[1] == 1) or \
+                (self.posicion[0] - posicion_predator[0] == -1 and self.posicion[1] - posicion_predator[1] == -1) or \
+                (self.posicion[0] - posicion_predator[0] == 1 and self.posicion[1] - posicion_predator[1] == -1) or \
+                (self.posicion[0] - posicion_predator[0] == -1 and self.posicion[1] - posicion_predator[1] == 1):
+            return True
+        elif self.posicion == predator.posicion:
+            return False
+        else:
+            return False
 
 
 class Pedrator(Character):
